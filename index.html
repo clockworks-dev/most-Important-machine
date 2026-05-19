@@ -53,6 +53,9 @@
       --content: 1100px;
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
       --color-text-inverse: #f9f8f4;
+      --color-divider: #dcd9d5;
+      --ssbjj-primary: #ffe640;
+      --ssbjj-secondary: #034ea2;
     }
 
     [data-theme="dark"] {
@@ -69,6 +72,9 @@
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
       --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
       --color-text-inverse: #171614;
+      --color-divider: #2b2825;
+      --ssbjj-primary: #ffe640;
+      --ssbjj-secondary: #034ea2;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -398,6 +404,48 @@
       width: 100%;
     }
 
+    .footer {
+      padding: var(--space-10) 0 var(--space-12);
+      color: var(--color-text-muted);
+    }
+
+    .footer-box {
+      border-top: 1px solid var(--color-divider);
+      padding-top: var(--space-6);
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .ssbjj {
+      position: relative;
+      color: var(--ssbjj-secondary);
+      text-decoration: none;
+      transition: all 250ms ease-in-out;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: var(--ssbjj-secondary);
+        transition: all 250ms ease-in-out;
+      }
+    }
+
+    .ssbjj:hover {
+      color: var(--ssbjj-primary);
+
+      &::before {
+        width: 100%;
+        height: 1px;
+        background-color: var(--ssbjj-primary);
+      }
+    }
+
     @media (max-width: 900px) {
 
       .hero-grid,
@@ -593,6 +641,13 @@
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <p>Pregled za učenike <a href="https://ss-ban-jjelacic-zapresic.skole.hr/" target="_blank" class="ssbjj">SŠBJJ</a>
+      </p>
+    </div>
+  </footer>
 
   <script>
     (function () {
